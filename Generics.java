@@ -69,9 +69,9 @@ public class Generics {
 
         //  Ajouter le code ici
 
-        c.forEach(E -> {
+        c.forEach(e -> {
 
-            if (p.filter(E)) result.add(E);
+            if (p.filter(e)) result.add(e);
 
         });
 
@@ -96,7 +96,7 @@ public class Generics {
 
         //  Ajouter le code ici
 
-        c.forEach(E -> result.add(m.map(E)));
+        c.forEach(e -> result.add(m.map(e)));
 
         // Retourner 'result' contenant les éléments de la Collection modifiés par la méthode m.map().
 
