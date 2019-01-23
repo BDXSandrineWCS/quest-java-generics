@@ -4,25 +4,36 @@ import java.util.Collection;
 import java.util.List;
 
 public class Generics {
-  interface Predicate<T> { boolean filter(T obj); }
-  interface Mapper<T, U> { U map(T obj); }
+
+  interface Predicate<T> {
+
+    boolean filter(T obj);
+  }
+
+  interface Mapper<T, U> {
+
+    U map(T obj);
+  }
 
   /**
    * Java entry point
    */
   public static void main(String... args) {
-    new Generics();
+
+      new Generics();
+
   }
 
   /**
    * Class Constructor
    */
   private Generics() {
+
     List<Integer> ints = Arrays.asList(1,2,3,4,5,6,7,8,9,10);
     List<String>  strs = Arrays.asList("tout", "titi", "ototo", "jean", "tous", "taratata");
 
-    // TODO - Ne retourner que les nombres pairs.
-    ints = filter(ints, i -> true);
+    //  Ne retourner que les nombres pairs.
+    ints = filter(ints, i -> ( i % 2 == 0));
     // TODO - Multiplier par 2 chaque élément de la liste.
     ints = map(ints, i -> i);
     for (Integer i: ints) System.out.println(i);
@@ -32,6 +43,7 @@ public class Generics {
     // TODO - Passer en majuscule toutes les Strings
     //strs = ...
     for (String s: strs) System.out.println(s);
+
   }
 
   /**
@@ -42,10 +54,19 @@ public class Generics {
    * @return A list that match the given filter.
    */
   private <T> List<T> filter(Collection<T> c, Predicate<T> p) {
+
     List<T> result = new ArrayList<>();
-    // TODO - Ajouter le code ici
+
+      //  Ajouter le code ici
+    c.forEach(e ->{
+
+       if (p.filter(e)) result.add(e);
+
+    });
+
     // Retourner 'result' contenant les éléments de Collection filtrés par la méthode o.filter().
     return result;
+
   }
 
   /**
@@ -57,9 +78,12 @@ public class Generics {
    * @return A list that match the given mapper.
    */
   private <T, U> List<U> map(Collection<T> c, Mapper<T, U> m) {
+
     List<U> result = new ArrayList<>();
     // TODO - Ajouter le code ici
     // Retourner 'result' contenant les éléments de la Collection modifiés par la méthode m.map().
     return result;
+
   }
+
 }
