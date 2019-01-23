@@ -34,8 +34,8 @@ public class Generics {
 
     //  Ne retourner que les nombres pairs.
     ints = filter(ints, i -> ( i % 2 == 0));
-    // TODO - Multiplier par 2 chaque élément de la liste.
-    ints = map(ints, i -> i);
+    // Multiplier par 2 chaque élément de la liste.
+    ints = map(ints, i -> i*2);
     for (Integer i: ints) System.out.println(i);
 
     // TODO - Ne retourner que les Strings contenant au moins 2 lettres t.
@@ -58,9 +58,10 @@ public class Generics {
     List<T> result = new ArrayList<>();
 
       //  Ajouter le code ici
-    c.forEach(e ->{
 
-       if (p.filter(e)) result.add(e);
+    c.forEach(E ->{
+
+       if (p.filter(E)) result.add(E);
 
     });
 
@@ -80,7 +81,8 @@ public class Generics {
   private <T, U> List<U> map(Collection<T> c, Mapper<T, U> m) {
 
     List<U> result = new ArrayList<>();
-    // TODO - Ajouter le code ici
+    //  Ajouter le code ici
+      c.forEach(E->result.add(m.map(E)));
     // Retourner 'result' contenant les éléments de la Collection modifiés par la méthode m.map().
     return result;
 
